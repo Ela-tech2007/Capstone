@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: accounts
-        image: youngsun1982/accounts:p3
+        image: youngsun1982/accounts:S8
         ports:
         - containerPort: 8080
 ---
@@ -32,4 +32,5 @@ spec:
     - port: 8080
       targetPort: 8080
 ---      
+
 
