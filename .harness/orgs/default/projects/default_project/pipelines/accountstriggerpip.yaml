@@ -1,0 +1,50 @@
+pipeline:
+  name: accountstriggerpip
+  identifier: accountstriggerpip
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: Github
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Compile
+                  identifier: Compile
+                  spec:
+                    shell: Sh
+                    command: |-
+                      cd accounts/
+                      mvn clean install
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: PrepareAccountsImg
+                  identifier: PrepareAccountsImg
+                  spec:
+                    connectorRef: DockerHubConnector
+                    repo: youngsun1982/accounts
+                    tags:
+                      - s11
