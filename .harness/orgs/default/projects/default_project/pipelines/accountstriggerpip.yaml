@@ -35,6 +35,8 @@ pipeline:
                   name: Compile
                   identifier: Compile
                   spec:
+                    connectorRef: DockerHubConnector
+                    image: maven:3.8.5-openjdk-17
                     shell: Sh
                     command: |-
                       cd accounts/
