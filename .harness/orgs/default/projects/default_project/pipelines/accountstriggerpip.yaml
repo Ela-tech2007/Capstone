@@ -50,3 +50,4 @@ pipeline:
                     repo: youngsun1982/accounts
                     tags:
                       - s11
+                    dockerfile: accounts/Dockerfile
