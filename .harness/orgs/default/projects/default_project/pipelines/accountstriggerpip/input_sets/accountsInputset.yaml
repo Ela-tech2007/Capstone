@@ -1,0 +1,14 @@
+inputSet:
+  name: accountsInputset
+  identifier: accountsInputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: accountstriggerpip
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
