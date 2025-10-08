@@ -41,7 +41,7 @@ pipeline:
                       mvn clean install
               - step:
                   type: BuildAndPushDockerRegistry
-                  name: PrepareAccountsImg
+                  name: PushAccountsImg
                   identifier: PrepareAccountsImg
                   spec:
                     connectorRef: DockerHubConnector
