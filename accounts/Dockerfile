@@ -1,6 +1,6 @@
 FROM openjdk:17-jdk-slim
 
-#trying some trigger try now
+#trying some trigger try testing try now
 COPY accounts/target/accounts-0.0.1-SNAPSHOT.jar accounts-0.0.1-SNAPSHOT.jar
 
 ENTRYPOINT ["java","-jar","accounts-0.0.1-SNAPSHOT.jar"]
