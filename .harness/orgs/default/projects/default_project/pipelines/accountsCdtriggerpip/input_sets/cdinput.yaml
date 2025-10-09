@@ -1,0 +1,25 @@
+inputSet:
+  name: cdinput
+  identifier: cdinput
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: accountsCdtriggerpip
+    stages:
+      - stage:
+          identifier: deploy
+          type: Deployment
+          spec:
+            service:
+              serviceInputs:
+                serviceDefinition:
+                  type: Kubernetes
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: accounts
+                        sources:
+                          - identifier: accounts
+                            type: DockerRegistry
+                            spec:
+                              tag: <+input>
