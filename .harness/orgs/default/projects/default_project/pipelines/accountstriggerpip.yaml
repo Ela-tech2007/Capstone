@@ -49,5 +49,5 @@ pipeline:
                     connectorRef: DockerHubConnector
                     repo: youngsun1982/accounts
                     tags:
-                      - s11
+                      - s12
                     dockerfile: accounts/Dockerfile
