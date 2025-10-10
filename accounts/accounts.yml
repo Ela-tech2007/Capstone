@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: accounts
+        harness.io/color: blue
     spec:
       containers:
       - name: accounts
@@ -27,10 +28,12 @@ metadata:
 spec:
   selector: 
     app: accounts
+    harness.io/color: blue
   type: LoadBalancer
   ports:
     - port: 8080
       targetPort: 8080
 ---      
+
 
 
