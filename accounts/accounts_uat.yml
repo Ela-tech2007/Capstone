@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: accounts-deployment
+  labels:
+    app: accounts
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: accounts
+  template:
+    metadata:
+      labels:
+        app: accounts
+        harness.io/color: blue
+    spec:
+      containers:
+      - name: accounts
+        image: youngsun1982/accounts:S8
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: accounts
+spec:
+  selector: 
+    app: accounts
+    harness.io/color: blue
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+---      
+
+
+
+
