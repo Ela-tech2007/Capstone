@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: accounts
-        image: youngsun1982/accounts:S8
+        image: youngsun1982/accounts:{{ .Values.image }}
         ports:
         - containerPort: 8080
 ---
@@ -34,6 +34,7 @@ spec:
     - port: 8080
       targetPort: 8080
 ---      
+
 
 
 
