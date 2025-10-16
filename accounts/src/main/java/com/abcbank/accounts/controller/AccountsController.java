@@ -31,4 +31,11 @@ public class AccountsController {
         System.out.println("testelawin");
         return ResponseEntity.status(HttpStatus.OK).body(customerDto);
     }
+
+    @GetMapping("/fetchUsername")
+    public ResponseEntity<CustomerDto> fetchAccountUserDetails(@RequestParam String name){
+        CustomerDto customerDto= iAccountService.findByUserName(name);
+        System.out.println("test");
+        return ResponseEntity.status(HttpStatus.OK).body(customerDto);
+    }
 }
