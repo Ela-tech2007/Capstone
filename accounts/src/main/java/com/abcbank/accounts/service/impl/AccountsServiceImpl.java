@@ -61,5 +61,15 @@ public class AccountsServiceImpl implements IAccountService {
         customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
         return customerDto;
     }
+
+
+    @Override
+    public CustomerDto findByUserName(String name) {
+        Customer customer = customerRepository.findByName(name);
+        Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId());
+        CustomerDto customerDto  = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+        customerDto.setAccountsDto(AccountsMapper.mapToAccountsDto(accounts, new AccountsDto()));
+        return customerDto;
+    }
 }
 
