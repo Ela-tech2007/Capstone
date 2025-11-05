@@ -1,0 +1,18 @@
+pipeline:
+  name: Migration1stpip
+  identifier: Migration1stpip
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: Github
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        template:
+          templateRef: TestExecutionTemplate
+          versionLabel: "1.0"
